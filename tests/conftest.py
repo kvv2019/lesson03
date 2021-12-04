@@ -25,6 +25,8 @@ def figure_reg(test_figure, test_param1, test_param2, test_param3):
         return test_figure(test_param1, test_param2)
     elif issubclass(test_figure, Triangle):
         return test_figure(test_param1, test_param2, test_param3)
+    else:
+        raise ValueError('Передан неожиданный класс')
 
 
 @pytest.fixture
@@ -38,6 +40,8 @@ def figure_rnd(test_figure):
         param2 = rnd_value()
         param3 = calc_param3(param1, param2)
         return test_figure(param1, param2, param3)
+    else:
+        raise ValueError('Передан неожиданный класс')
 
 
 @pytest.fixture
